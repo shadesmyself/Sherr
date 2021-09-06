@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/double_margin"
+        android:src="@drawable/ic_bookmark" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/line" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:fontFamily="@font/medium"
+            android:text="@string/key_word"
+            android:textColor="@color/text_light" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:drawableStart="@drawable/ic_pen"
+            android:drawablePadding="@dimen/text_margin"
+            android:fontFamily="@font/medium"
+            android:gravity="center_vertical"
+            android:text="Chainsaws"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:fontFamily="@font/medium"
+            android:text="@string/location"
+            android:textColor="@color/text_light" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:drawableStart="@drawable/ic_location"
+            android:drawablePadding="@dimen/text_margin"
+            android:fontFamily="@font/medium"
+            android:gravity="center_vertical"
+            android:text="Киев, Дарницкий"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:fontFamily="@font/medium"
+            android:text="@string/category"
+            android:textColor="@color/text_light" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:drawableStart="@drawable/ic_pen"
+            android:drawablePadding="@dimen/text_margin"
+            android:fontFamily="@font/medium"
+            android:gravity="center_vertical"
+            android:text="Инструмент"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:background="@drawable/orange_btn_with_border"
+            android:fontFamily="@font/medium"
+            android:gravity="center"
+            android:padding="@dimen/text_margin"
+            android:text="@string/show"
+            android:textColor="@color/text_gray" />
+
+    </LinearLayout>
+
+
+</FrameLayout>

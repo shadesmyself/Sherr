@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet_description"
+    android:layout_width="match_parent"
+    android:layout_height="420dp"
+    android:background="@drawable/blue_corner_bg"
+    android:orientation="vertical"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="190dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/indicator"
+                    android:text="@string/description"
+                    android:textColor="@color/text_light_white"
+                    android:textSize="@dimen/text_size_16"
+                    app:fontFamily="@font/demibold" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    android:textColor="@color/text_light_white"
+                    android:textSize="@dimen/text_size_14"
+                    app:fontFamily="@font/medium" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_margin"
+                    android:text="@string/location"
+                    android:textColor="@color/text_light_white"
+                    android:textSize="@dimen/text_size_16"
+                    app:fontFamily="@font/demibold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Киев, Дарницкий район"
+                        android:textColor="@color/text_light_white"
+                        android:textSize="@dimen/text_size_14"
+                        app:fontFamily="@font/medium" />
+
+                    <TextView
+                        android:id="@+id/tvDistance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="8 км от Вас"
+                        android:textColor="@color/text_light_white"
+                        android:textSize="@dimen/text_size_14"
+                        app:fontFamily="@font/medium" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_margin"
+                    android:text="@string/user"
+                    android:textColor="@color/text_light_white"
+                    android:textSize="@dimen/text_size_16"
+                    app:fontFamily="@font/demibold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="@dimen/circle_img_size"
+                        android:layout_height="@dimen/circle_img_size"
+                        android:src="@drawable/place" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_margin"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Алина Квиталина"
+                            android:textColor="@color/text_light_white"
+                            android:textSize="@dimen/text_size_14"
+                            app:fontFamily="@font/demibold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <RatingBar
+                                android:id="@+id/rating"
+                                style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:isIndicator="true"
+                                android:stepSize="1"
+                                android:paddingTop="4dp"
+                                android:rating="4" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:text="Отзывы ( 22 )"
+                                android:textColor="@color/text_light_white"
+                                android:textSize="@dimen/text_size_14"
+                                app:fontFamily="@font/demibold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/transView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/transparent_textview"
+                android:visibility="visible" />
+        </FrameLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/btns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:id="@+id/title"
+            android:gravity="center_horizontal"
+            android:text="Еще предложения Алины"
+            android:visibility="gone"
+            android:textColor="@color/text_light_white"
+            android:textSize="@dimen/text_size_16"
+            app:fontFamily="@font/demibold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/text_margin"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/orange_btn"
+                android:text="@string/rent"
+                android:textAllCaps="false"
+                android:id="@+id/lease_btn"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14"
+                app:fontFamily="@font/demibold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginStart="4dp"
+                android:id="@+id/msg_btn"
+                android:layout_weight="1"
+                android:background="@drawable/orange_btn"
+                android:text="@string/msg"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14"
+                app:fontFamily="@font/demibold" />
+        </LinearLayout>
+        <!--        </FrameLayout>-->
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

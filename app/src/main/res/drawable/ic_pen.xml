@@ -1,0 +1,39 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="23dp"
+    android:height="22dp"
+    android:viewportWidth="23"
+    android:viewportHeight="22">
+  <path
+      android:pathData="M20.4766,5.6089L19.3588,6.7317L20.6943,8.073L16.3004,12.486L15.6944,11.8775L13.7686,13.8116L14.9132,14.9612L22.3508,7.4912L20.4766,5.6089Z"
+      android:fillColor="#FFF5CB"/>
+  <path
+      android:pathData="M2.8894,20.7873L1.8889,19.7825C1.8889,19.7825 0.7991,20.7873 1.0132,21.6668C1.8889,21.8819 2.8894,20.7873 2.8894,20.7873Z"
+      android:fillColor="#6D76E7"/>
+  <path
+      android:pathData="M2.8274,20.8512C2.5956,21.0832 1.7593,21.8502 1.0137,21.6665L2.3895,20.2847L2.8895,20.7869C2.8895,20.787 2.8673,20.8111 2.8274,20.8512Z"
+      android:fillColor="#1C2EDE"/>
+  <path
+      android:pathData="M4.2123,14.4758L3.9467,14.7426L1.5469,19.5652L3.1055,21.1306L7.9072,18.7203L8.1728,18.4536L4.2123,14.4758Z"
+      android:fillColor="#EFEFEF"/>
+  <path
+      android:pathData="M8.1731,18.4535L7.9072,18.7206L3.1053,21.1306L2.3262,20.3481L6.1929,16.4646L8.1731,18.4535Z"
+      android:fillColor="#FFF5CB"/>
+  <path
+      android:pathData="M7.9072,18.7202L3.9467,14.7425L17.1396,1.4922L21.1001,5.4699L7.9072,18.7202Z"
+      android:fillColor="#6170F2"/>
+  <path
+      android:pathData="M21.0998,5.4703L7.9069,18.7205L5.9266,16.7317L19.1196,3.4814L21.0998,5.4703Z"
+      android:fillColor="#2F40E1"/>
+  <path
+      android:pathData="M13.3086,13.2957L9.3481,9.3179L10.4665,8.1946L14.427,12.1724L13.3086,13.2957Z"
+      android:fillColor="#EFEFEF"/>
+  <path
+      android:pathData="M14.4269,12.173L13.3088,13.296L11.3285,11.3071L12.4466,10.1841L14.4269,12.173Z"
+      android:fillColor="#FFF5CB"/>
+  <path
+      android:pathData="M21.0488,5.5217L17.0883,1.544L18.3909,0.2357L22.3514,4.2135L21.0488,5.5217Z"
+      android:fillColor="#EFEFEF"/>
+  <path
+      android:pathData="M22.3513,4.2141L21.0489,5.5221L19.0687,3.5332L20.371,2.2252L22.3513,4.2141Z"
+      android:fillColor="#FFF5CB"/>
+</vector>

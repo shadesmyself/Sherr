@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mainPageFragment"
+        android:icon="@drawable/tab_home_selector"
+        android:title="@string/app_name" />
+    <item
+        android:id="@+id/chatsFragment"
+        android:icon="@drawable/tab_chat_selector"
+        android:title="@string/app_name" />
+    <item
+        android:id="@+id/addGoodFragment"
+        android:icon="@drawable/tab_create_selector"
+        android:title="@string/app_name" />
+    <item
+        android:id="@+id/favoritesFragment"
+        android:icon="@drawable/tab_fav_selector"
+        android:title="@string/app_name" />
+    <item
+        android:id="@+id/myProfileFragment"
+        android:icon="@drawable/crown_circled"
+        android:title="@string/app_name" />
+</menu>

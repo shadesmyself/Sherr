@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="match_parent"
+    xmlns:mainToolbar="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.profile.comments.CommentsFragment">
+
+    <com.un.sherr.custom.views.MainToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:colorBackground"
+        app:elevation="0dp"
+        android:id="@+id/commentToolbar"
+        mainToolbar:text="@string/active"
+        mainToolbar:resource="@drawable/ic_cross" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvActives"
+        android:layout_width="match_parent"
+        android:background="@drawable/primary_page_bg"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        android:paddingStart="@dimen/text_margin"
+        android:paddingEnd="@dimen/text_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/archive_item" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

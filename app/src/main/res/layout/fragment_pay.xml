@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mainToolbar="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.main.MainFragment">
+
+    <com.un.sherr.custom.views.MainToolbar
+        android:id="@+id/mainToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:colorBackground"
+        app:elevation="0dp"
+        mainToolbar:resource="@drawable/ic_cross"
+        mainToolbar:text="@string/pay" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/primary_page_bg"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/line_small_margin" />
+
+            <include layout="@layout/payment_item" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_margin"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/text_margin"
+                android:paddingEnd="@dimen/text_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Быстрый страт"
+                    android:textSize="@dimen/text_size_16"
+                    app:fontFamily="@font/demibold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50 грн."
+                    android:textSize="@dimen/text_size_16"
+                    app:fontFamily="@font/demibold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/text_margin">
+
+
+                <!--                <ImageView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:background="@drawable/circle_with_shadow"-->
+                <!--                    android:padding="0dp"-->
+                <!--                    android:scaleType="centerCrop"-->
+                <!--                    android:src="@drawable/mountain" />-->
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"
+                    android:src="@drawable/mount"
+                    app:backgroundTint="@color/white"
+                    app:borderWidth="1dp"
+                    app:fabSize="mini"
+                    app:rippleColor="@color/white"
+                    app:tint="@null" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/text_margin"
+                    android:fontFamily="@font/medium"
+                    android:text="Топ-предложение на 3 дня" />
+            </LinearLayout>
+
+            <include layout="@layout/line_small_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginTop="@dimen/text_margin"
+                android:fontFamily="@font/medium"
+                android:text="Выбирите способ оплаты"
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/text_size_16" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_marginBottom="@dimen/text_margin"
+                app:cardCornerRadius="@dimen/corner_radius"
+                app:cardElevation="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableStart="@drawable/ic_payment"
+                    android:drawablePadding="@dimen/text_margin"
+                    android:padding="@dimen/double_margin"
+                    android:text="@string/bank_card"
+                    app:fontFamily="@font/demibold" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/text_margin"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/text_margin"
+        android:paddingEnd="@dimen/text_margin">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding"
+            android:layout_weight="1"
+            android:background="@drawable/gray_btn"
+            android:gravity="center"
+            android:padding="@dimen/text_margin"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            app:fontFamily="@font/demibold" />
+
+        <TextView
+            android:id="@+id/tvPay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding"
+            android:layout_weight="1"
+            android:background="@drawable/orange_btn"
+            android:gravity="center"
+            android:padding="@dimen/text_margin"
+            android:text="@string/pay_1s"
+            android:textColor="@color/white"
+            app:fontFamily="@font/demibold" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

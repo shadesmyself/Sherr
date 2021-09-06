@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mainToolbar="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:colorBackground"
+        android:elevation="0dp"
+        app:elevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/mainToolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/text_margin"
+                android:layout_weight="1"
+                android:fontFamily="@font/bold"
+                android:text="@string/comment"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_header"
+                app:fontFamily="@font/bold" />
+
+            <TextView
+                android:id="@+id/ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/text_margin"
+                android:fontFamily="@font/bold"
+                android:text="@string/done"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_14"
+                app:fontFamily="@font/bold" />
+
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.7dp"
+                android:background="@color/line_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:fontFamily="@font/medium"
+                android:text="@string/set_rating"
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/text_size_14" />
+
+            <RatingBar
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="false"
+                android:layout_gravity="left"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:stepSize="1"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:rating="4" />
+
+            <include
+                layout="@layout/line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_marginBottom="@dimen/small_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:fontFamily="@font/medium"
+                android:text="@string/communication"
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/text_size_14" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:orientation="horizontal">
+
+                <com.jaygoo.widget.RangeSeekBar
+                    android:id="@+id/rangeSeekbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    android:layout_weight="1"
+                    app:rsb_gravity="center"
+                    app:rsb_indicator_show_mode="alwaysHide"
+                    app:rsb_max="10"
+                    app:rsb_min="0"
+                    app:rsb_mode="single"
+                    app:rsb_progress_color="@color/colorAccent"
+                    app:rsb_progress_default_color="@color/gray_progressbar_bg"
+                    app:rsb_progress_height="8dp"
+                    app:rsb_progress_radius="4dp"
+                    app:rsb_thumb_drawable="@drawable/ic_red_circle" />
+
+                <TextView
+                    android:id="@+id/communication_rate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/bold"
+                    android:text="0/10"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_16"
+                    app:fontFamily="@font/bold" />
+            </LinearLayout>
+
+            <include
+                layout="@layout/line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_marginBottom="@dimen/small_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:fontFamily="@font/medium"
+                android:text="@string/deadlines"
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/text_size_14" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:orientation="horizontal">
+
+                <com.jaygoo.widget.RangeSeekBar
+                    android:id="@+id/rangeSeekbarDeadlines"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    android:layout_weight="1"
+                    app:rsb_gravity="center"
+                    app:rsb_indicator_show_mode="alwaysHide"
+                    app:rsb_max="10"
+                    app:rsb_min="0"
+                    app:rsb_mode="single"
+                    app:rsb_progress_color="@color/colorAccent"
+                    app:rsb_progress_default_color="@color/gray_progressbar_bg"
+                    app:rsb_progress_height="8dp"
+                    app:rsb_progress_radius="4dp"
+                    app:rsb_thumb_drawable="@drawable/ic_red_circle" />
+
+                <TextView
+                    android:id="@+id/deadlines_rate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/bold"
+                    android:text="0/10"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_16"
+                    app:fontFamily="@font/bold" />
+            </LinearLayout>
+
+            <include
+                layout="@layout/line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_marginBottom="@dimen/small_margin" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/text_margin"
+        android:fontFamily="@font/medium"
+        android:text="@string/write_comment"
+        android:textColor="@color/text_light"
+        android:textSize="@dimen/text_size_14" />
+
+
+    <LinearLayout
+        android:id="@+id/etWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin"
+        android:background="@color/bg_gray"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginEnd="@dimen/text_margin"
+            android:src="@drawable/ic_attach" />
+
+        <requestFocus/>
+
+        <EditText
+            android:id="@+id/etMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding"
+            android:layout_weight="1"
+            android:background="@drawable/edt_msg_light"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusedByDefault="true"
+            android:hint="@string/write_a_message"
+            android:imeOptions="actionSend"
+            android:inputType="textLongMessage"
+            android:paddingStart="@dimen/text_margin"
+            android:paddingTop="@dimen/padding"
+            android:paddingEnd="@dimen/text_margin"
+            android:paddingBottom="@dimen/padding"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary_light"
+            android:textSize="@dimen/text_size_16"
+            app:fontFamily="@font/medium" />
+
+    </LinearLayout>
+
+</LinearLayout>

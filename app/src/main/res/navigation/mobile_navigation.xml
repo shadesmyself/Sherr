@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation.xml"
+    app:startDestination="@id/mainPageFragment">
+
+    <navigation
+        android:id="@+id/navigation"
+        app:startDestination="@id/mainPageFragment" />
+    <fragment
+        android:id="@+id/chatsFragment"
+        android:name="com.un.sherr.ui.chat.ChatsFragment"
+        android:label="fragment_chats"
+        tools:layout="@layout/fragment_chat">
+        <action
+            android:id="@+id/action_chatsFragment_to_chatDirectFragment"
+            app:destination="@id/chatDirectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="com.un.sherr.ui.main.MainFragment"
+        android:label="fragment_main_page"
+        tools:layout="@layout/fragment_main_page">
+        <action
+            android:id="@+id/action_mainPageFragment_to_detailOfferFragment"
+            app:destination="@id/detailOfferFragment" />
+        <!--   app:enterAnim="@anim/fragment_open_enter"
+               app:exitAnim="@anim/fragment_open_exit" !- -->
+
+        <action
+            android:id="@+id/action_mainPageFragment_to_mainFilterFragment"
+            app:destination="@id/mainFilterFragment" />
+        <action
+            android:id="@+id/to_subcategoryFragment"
+            app:destination="@id/subcategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.un.sherr.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myProfileFragment"
+        android:name="com.un.sherr.ui.profile.MyProfileFragment"
+        android:label="fragment_my_profile"
+        tools:layout="@layout/fragment_my_profile">
+        <action
+            android:id="@+id/action_myProfileFragment_to_verifyFragment"
+            app:destination="@id/verifyFragment" />
+        <action
+            android:id="@+id/action_myProfileFragment_to_archivesFragment"
+            app:destination="@id/archivesFragment" />
+        <action
+            android:id="@+id/action_myProfileFragment_to_activesFragment"
+            app:destination="@id/activesFragment" />
+        <action
+            android:id="@+id/action_myProfileFragment_to_dueRentFragment"
+            app:destination="@id/dueRentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyFragment"
+        android:name="com.un.sherr.ui.profile.VerifyFragment"
+        android:label="fragment_verify"
+        tools:layout="@layout/fragment_verify" />
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="com.un.sherr.ui.profile.comments.CommentsFragment"
+        android:label="fragment_comments"
+        tools:layout="@layout/fragment_comments" />
+    <fragment
+        android:id="@+id/mainFilterFragment"
+        android:name="com.un.sherr.ui.main.MainFilterFragment"
+        android:label="fragment_main_filter"
+        tools:layout="@layout/fragment_main_filter">
+        <action
+            android:id="@+id/action_mainFilterFragment_to_rubricFragment"
+            app:destination="@id/rubricFragment" />
+        <action
+            android:id="@+id/action_mainFilterFragment_to_selectLocationFragment"
+            app:destination="@id/selectLocationFragment" />
+        <action
+            android:id="@+id/action_mainFilterFragment_to_distanceFragment"
+            app:destination="@id/distanceFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rubricFragment"
+        android:name="com.un.sherr.ui.main.filters.RubricFragment"
+        android:label="fragment_rubric"
+        tools:layout="@layout/fragment_rubric" >
+        <action
+            android:id="@+id/to_subcategoryFragment"
+            app:destination="@id/subcategoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/subcategoryFragment"
+        android:name="com.un.sherr.ui.main.filters.SubcategoryFragment"
+        android:label="fragment_rubric"
+        tools:layout="@layout/fragment_subcategory" >
+        <argument
+            android:name="category"
+            app:argType="com.un.sherr.models.CategoryResponse" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pictureFragment"
+        android:name="com.un.sherr.ui.offer.PictureFragment"
+        android:label="PictureFragment"
+        tools:layout="@layout/offer_image_card" />
+    <fragment
+        android:id="@+id/fullPictureFragment"
+        android:name="com.un.sherr.ui.offer.FullPictureFragment"
+        android:label="FullPictureFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        tools:layout="@layout/fragment_picture">
+        <argument
+            android:name="IMG"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailOfferFragment"
+        android:name="com.un.sherr.ui.offer.DetailOfferFragment"
+        android:label="fragment_detail_offer_page"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        tools:layout="@layout/fragment_detail_offer">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_detailOfferFragment_to_fullPictureFragment"
+            app:destination="@id/fullPictureFragment" />
+        <action
+            android:id="@+id/action_detailOfferFragment_to_leaseOfferFragment"
+            app:destination="@id/leaseOfferFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatDirectFragment"
+        android:name="com.un.sherr.ui.chat.ChatDirectFragment"
+        android:label="ChatDirectFragment"
+        tools:layout="@layout/fragment_chat_direct" />
+
+    <fragment
+        android:id="@+id/selectPositionMapFragment"
+        android:name="com.un.sherr.ui.main.filters.SelectPositionMapFragment"
+        android:label="SelectPositionMapFragment"
+        tools:layout="@layout/fragment_select_position_map" />
+    <fragment
+        android:id="@+id/selectLocationFragment"
+        android:name="com.un.sherr.ui.main.filters.SelectLocationFragment"
+        android:label="fragment_select_location"
+        tools:layout="@layout/fragment_select_location">
+        <action
+            android:id="@+id/action_selectLocationFragment_to_selectPositionMapFragment"
+            app:destination="@id/selectPositionMapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/distanceFragment"
+        android:name="com.un.sherr.ui.main.filters.DistanceFragment"
+        android:label="fragment_distance"
+        tools:layout="@layout/fragment_distance" />
+    <fragment
+        android:id="@+id/leaseOfferFragment"
+        android:name="com.un.sherr.ui.offer.LeaseOfferFragment"
+        android:label="LeaseOfferFragment"
+        tools:layout="@layout/fragment_lease">
+        <argument
+            android:name="ID"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_leaseOfferFragment_to_createCommentFragment"
+            app:destination="@id/createCommentFragment" />
+        <action
+            android:id="@+id/action_leaseOfferFragment_to_payFragment"
+            app:destination="@id/payFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createCommentFragment"
+        android:name="com.un.sherr.ui.offer.CreateCommentFragment"
+        android:label="CreateCommentFragment"
+        tools:layout="@layout/fragment_create_comment" />
+
+    <fragment
+        android:id="@+id/addGoodFragment"
+        android:name="com.un.sherr.ui.addgood.AddGoodFragment"
+        android:label="fragment_add_good"
+        tools:layout="@layout/fragment_add_good">
+        <action
+            android:id="@+id/action_addGoodFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_addGoodFragment_to_rubricFragment"
+            app:destination="@id/rubricFragment" />
+        <action
+            android:id="@+id/action_addGoodFragment_to_addGood2Fragment"
+            app:destination="@id/addGood2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.un.sherr.ui.addgood.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/addGood2Fragment"
+        android:name="com.un.sherr.ui.addgood.AddGood2Fragment"
+        android:label="fragment_add_good2"
+        tools:layout="@layout/fragment_add_good2">
+        <action
+            android:id="@+id/action_addGood2Fragment_to_policiesFragment"
+            app:destination="@id/policiesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/policiesFragment"
+        android:name="com.un.sherr.ui.addgood.PoliciesFragment"
+        android:label="PoliciesFragment" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.un.sherr.ui.favorites.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/cardFragment"
+        android:name="com.un.sherr.ui.payment.CardFragment"
+        android:label="fragment_card"
+        tools:layout="@layout/fragment_card" />
+    <fragment
+        android:id="@+id/payFragment"
+        android:name="com.un.sherr.ui.payment.PayFragment"
+        android:label="fragment_pay"
+        tools:layout="@layout/fragment_pay">
+        <action
+            android:id="@+id/action_payFragment_to_cardFragment"
+            app:destination="@id/cardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/archivesFragment"
+        android:name="com.un.sherr.ui.profile.ArchivesFragment"
+        android:label="ArchivesFragment"
+        tools:layout="@layout/fragment_archives" />
+    <fragment
+        android:id="@+id/activesFragment"
+        android:name="com.un.sherr.ui.profile.ActivesFragment"
+        android:label="ActivesFragment"
+        tools:layout="@layout/fragment_actives" />
+    <fragment
+        android:id="@+id/dueRentFragment"
+        android:name="com.un.sherr.ui.profile.DueRentFragment"
+        android:label="DueRentFragment"
+        tools:layout="@layout/fragment_due_rent" />
+
+    <fragment
+        android:id="@+id/authorizationFragment"
+        android:name="com.un.sherr.ui.authorization.AuthorizationFragment"
+        android:label="@string/authorization"
+        tools:layout="@layout/fragment_authorization" />
+
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.un.sherr.ui.authorization.RegistrationFragment"
+        android:label="@string/registration"
+        tools:layout="@layout/fragment_registration" />
+</navigation>

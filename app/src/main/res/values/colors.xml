@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1D2C44</color>
+    <color name="colorPrimaryDark">#131F32</color>
+    <color name="colorAccent">#FE6800</color>
+
+    <color name="gray_main">#99A9C0</color>
+    <color name="line_color">#DBDBDB</color>
+    <color name="gray_progressbar_bg">#D4D4D4</color>
+
+    <color name="text_primary">#1E2E45</color>
+    <color name="text_secondary">#717A87</color>
+    <color name="tint_gray">#5F6B7C</color>
+    <color name="text_gray">#565A60</color>
+    <color name="text_secondary_light">#A7ABB4</color>
+    <color name="text_secondary_light2">#B9BCC4</color>
+    <color name="bg_gray">#F5F5F5</color>
+    <color name="text_light_white">#DEE3E9</color>
+    <color name="text_green">#298127</color>
+    <color name="text_light">#919191</color>
+    <color name="green_light">#3B9F39</color>
+    <color name="text_red">#CC4426</color>
+    <color name="white">#fff</color>
+
+
+<!--image picker-->
+    <color name="toolbar_bg">#1D2C44</color>
+    <color name="counter_bg">#1D2C44</color>
+</resources>

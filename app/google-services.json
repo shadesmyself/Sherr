@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1069514445472",
+    "firebase_url": "https://loop-269408.firebaseio.com",
+    "project_id": "loop-269408",
+    "storage_bucket": "loop-269408.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069514445472:android:ba43d643db380185cf6fc5",
+        "android_client_info": {
+          "package_name": "com.un.sherr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1069514445472-d11qomdsjtsabuu15qr4h7gt3g7o7mc8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVr1n8-FFi3epiaUOXJclZboCGuvTkjBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1069514445472-d11qomdsjtsabuu15qr4h7gt3g7o7mc8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

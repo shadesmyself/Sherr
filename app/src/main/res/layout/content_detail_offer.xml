@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/fragment_detail_offer">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingLeft="@dimen/padding_pager"
+            android:paddingRight="@dimen/padding_pager" />
+
+        <com.fuzz.indicator.CutoutViewIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viewPager"
+            android:layout_marginTop="@dimen/padding"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:rcv_drawable="@drawable/indicator_sel"
+            app:rcv_drawable_unselected="@drawable/indicator"
+            app:rcv_internal_margin="8dp"
+            app:rcv_tools_indicator_count="4" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/indicator"
+            android:layout_marginTop="@dimen/small_margin"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:fontFamily="@font/demibold"
+                android:text="DJI Phantom3 Professional"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_18"
+                app:fontFamily="@font/demibold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:fontFamily="@font/demibold"
+                android:text="Стоимость аренды за сутки"
+                android:textColor="@color/text_secondary_light"
+                android:textSize="@dimen/text_size_14"
+                android:textStyle="bold"
+                app:fontFamily="@font/demibold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/price_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:fontFamily="@font/demibold"
+                android:text="120 usd"
+                android:textColor="@color/text_green"
+                android:textSize="@dimen/text_size_14"
+                android:textStyle="bold"
+                app:fontFamily="@font/demibold" />
+
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_marginTop="@dimen/text_margin"-->
+            <!--                android:elevation="0dp"-->
+            <!--                app:cardCornerRadius="@dimen/corner_radius_big"-->
+            <!--                app:cardElevation="0dp">-->
+
+            <!--                <fragment-->
+            <!--                    android:id="@+id/map"-->
+            <!--                    android:name="com.google.android.gms.maps.SupportMapFragment"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="match_parent" />-->
+            <!--            </androidx.cardview.widget.CardView>-->
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
