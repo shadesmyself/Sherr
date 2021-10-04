@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.un.sherr.R
+import com.un.sherr.base.BaseApplication
 import com.un.sherr.base.BaseFragment
 import com.un.sherr.di.ViewModelProviderFactory
 import kotlinx.android.synthetic.main.fragment_authorization.user_email_edit_text
@@ -27,6 +28,16 @@ class RegistrationFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity(), viewModelProviderFactory).get(RegistrationViewModel::class.java)
+
+        viewModel.userAuthorizationResponseLD.observe(requireActivity(), {
+            if(it.isTokenExist){
+                BaseApplication.userToken
+                    .edit()
+                    .putString("UserToken" , it.accessToken)
+                    .apply()
+                requireActivity().onBackPressed()
+            }
+        })
         setupListeners()
     }
 

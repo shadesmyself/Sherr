@@ -1,11 +1,14 @@
 package com.un.sherr.ui.authorization
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.un.sherr.base.BaseViewModel
 import com.un.sherr.models.TokenResponse
 import com.un.sherr.models.UserAuthorizationRequest
 import com.un.sherr.network.Api
+import com.un.sherr.utils.Constants
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
@@ -15,13 +18,24 @@ class AuthorizationViewModel @Inject constructor(val api: Api) : BaseViewModel()
     var progressDialog = MutableLiveData<Boolean>()
     val errorMessage: MutableLiveData<String> = MutableLiveData()
     val tokenLD = MutableLiveData<TokenResponse>()
+    private var username: String? = null
+    private var password: String? = null
 
     init {
-        if (userAuthorizationRequestLD.value == null) userAuthorizationRequestLD.value = UserAuthorizationRequest()
+        if (userAuthorizationRequestLD.value == null) userAuthorizationRequestLD.value =
+            UserAuthorizationRequest()
     }
 
     fun auth() {
-        val disposable = api.getUserAuthorizationToken(userAuthorizationRequestLD.value ?: return)
+        if (!password.isNullOrEmpty()  && !username.isNullOrEmpty()){
+        val disposable = api.getUserAuthorizationToken(
+            Constants.CLIENT_ID,
+            Constants.CLIENT_SECRET,
+            Constants.GRANT_TYPE,
+            password!!,
+            Constants.SCOPE,
+            username!!
+        )
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
@@ -32,13 +46,13 @@ class AuthorizationViewModel @Inject constructor(val api: Api) : BaseViewModel()
                 }
             )
     }
-
-    fun setUsername(username :String) {
-        userAuthorizationRequestLD.value = userAuthorizationRequestLD.value?.copy(username = username)
+    }
+    fun setUsername(username: String) {
+        this.username = username
     }
 
-    fun setPassword(password :String) {
-        userAuthorizationRequestLD.value = userAuthorizationRequestLD.value?.copy(password = password)
+    fun setPassword(password: String) {
+        this.password = password
     }
 
 

@@ -35,7 +35,7 @@ class AppModule {
             .addInterceptor(Interceptor { chain ->
                 var request = chain.request()
                 val url = request.url.newBuilder().build()
-                request = request.newBuilder().url(url).build()
+                 request = request.newBuilder().url(url).build()
                 chain.proceed(request)
             })
             .addInterceptor(interceptor)

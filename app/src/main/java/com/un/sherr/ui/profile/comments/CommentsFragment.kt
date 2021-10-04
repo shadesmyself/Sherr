@@ -11,7 +11,7 @@ import com.un.sherr.R
 import com.un.sherr.di.ViewModelProviderFactory
 import com.un.sherr.models.Comment
 import com.un.sherr.ui.MainActivity
-import com.un.sherr.ui.profile.ProfileViewModel
+import com.un.sherr.ui.profile.vm.ProfileViewModel
 import com.un.sherr.ui.profile.adapters.CommentsAdapter
 import kotlinx.android.synthetic.main.fragment_comments.*
 import javax.inject.Inject

@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_create_comment.*
 
 class CreateCommentFragment : BaseFragment() {
     companion object {
-        val ID: String = "ID"
+        const val ID: String = "ID"
     }
 
     override fun onCreateView(
@@ -27,9 +27,9 @@ class CreateCommentFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ok.setOnClickListener { activity!!.onBackPressed() }
+        ok.setOnClickListener { requireActivity().onBackPressed() }
 
-        val imm: InputMethodManager? = getSystemService(activity!!, InputMethodManager::class.java)
+        val imm: InputMethodManager? = getSystemService(requireActivity(), InputMethodManager::class.java)
         imm!!.showSoftInput(etMessage, InputMethodManager.SHOW_IMPLICIT)
 
         rangeSeekbar.setOnRangeChangedListener(object : OnRangeChangedListener {

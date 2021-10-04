@@ -1,6 +1,5 @@
 package com.un.sherr.models
 
-
 import com.google.gson.annotations.SerializedName
 
 data class Photo(

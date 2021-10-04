@@ -2,22 +2,37 @@ package com.un.sherr.ui.profile
 
 
 import android.app.Activity
+import android.app.Application
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.opensooq.supernova.gligar.GligarPicker
 import com.un.sherr.R
+import com.un.sherr.base.BaseApplication
 import com.un.sherr.base.BaseFragment
+import com.un.sherr.di.ViewModelProviderFactory
 import com.un.sherr.ui.MainActivity
+import com.un.sherr.ui.dialog.DialogWithTwoButtons
 import com.un.sherr.ui.main.adapters.GoodsAdapter
+import com.un.sherr.ui.profile.vm.ProfileViewModel
+import kotlinx.android.synthetic.main.fragment_chat_direct.*
 import kotlinx.android.synthetic.main.fragment_my_profile.*
+import java.io.File
+import javax.inject.Inject
 
 class MyProfileFragment : BaseFragment() {
     val PICKER_REQUEST_CODE = 9
 
+    private lateinit var viewModel: ProfileViewModel
+
+    @Inject
+    lateinit var viewModelProviderFactory: ViewModelProviderFactory
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,6 +42,9 @@ class MyProfileFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProvider(requireActivity(), viewModelProviderFactory).get(ProfileViewModel::class.java)
+
         profile_img.setOnClickListener {
             GligarPicker().limit(1).requestCode(PICKER_REQUEST_CODE).withFragment(this).show()
         }
@@ -42,6 +60,12 @@ class MyProfileFragment : BaseFragment() {
         vgTermRent.setOnClickListener {
             findNavController().navigate(R.id.action_myProfileFragment_to_dueRentFragment)
         }
+        vgExit.setOnClickListener {
+            val userToken = BaseApplication.userToken.getString("UserToken", "")
+            if (userToken == "")
+                return@setOnClickListener
+            showDialog(getString(R.string.exit_hint))
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -55,18 +79,38 @@ class MyProfileFragment : BaseFragment() {
                 val imagesList = data?.extras?.getStringArray(GligarPicker.IMAGES_RESULT)// return list of selected images paths.
                 if (!imagesList.isNullOrEmpty()) {
                     requestManager
-                        .load(imagesList[0])
+                        .load(imagesList?.get(0))
                         .into(profile_img)
-
-
+                    val avatar = File(imagesList!![0])
+                    viewModel.uploadUserAvatar(avatar)
                 }
             }
         }
+    }
+
+    private fun showDialog(title: String) {
+        val dialog = DialogWithTwoButtons.newInstance(
+            title = title,
+            firstButtonText = getString(R.string.exit),
+            secondButtonText = getString(R.string.cancel))
+        dialog.isCancelable = false
+        dialog.apply {
+            onFirstButtonClick = {
+                BaseApplication.userToken
+                    .edit()
+                    .clear()
+                    .apply()
+                findNavController().navigate(R.id.mainPageFragment)
+            }
+            onSecondButtonClick = {
+          dialog.dismiss()
+            }
+        }
+        dialog.show(requireActivity().supportFragmentManager, DialogWithTwoButtons::class.java.simpleName)
     }
 
     override fun onResume() {
         super.onResume()
         (activity as MainActivity).showBottomMenu(true)
     }
-
 }

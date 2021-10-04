@@ -1,7 +1,8 @@
 package com.un.sherr.ui.main
 
-
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.un.sherr.R
 import com.un.sherr.base.BaseFragment
 import com.un.sherr.custom.GridSpacingItemDecoration
+import com.un.sherr.databinding.FragmentMainPageBinding
 import com.un.sherr.di.ViewModelProviderFactory
 import com.un.sherr.models.CategoryResponse
 import com.un.sherr.ui.MainActivity
@@ -32,20 +34,35 @@ class MainFragment : BaseFragment(), View.OnClickListener {
 
     @Inject
     lateinit var mapManagement: MapManagement
-
+    private lateinit var binding: FragmentMainPageBinding
     private lateinit var mainAdapter: GoodsAdapter
     private lateinit var adapter: CategoriesAdapter
     lateinit var viewModel: MainViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_main_page, container, false)
+    ): View {
+        binding = FragmentMainPageBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel =
-            ViewModelProvider(requireActivity(), viewModelProviderFactory).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(
+            requireActivity(),
+            viewModelProviderFactory
+        ).get(MainViewModel::class.java)
         mainToolBar.onIconClick(this)
+        binding.searchOrders.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
         viewModel.loadOrders()
         initObservables()
         setupGoodsRecycler()
@@ -70,6 +87,13 @@ class MainFragment : BaseFragment(), View.OnClickListener {
 //                if (mapManagement.isMapsEnabled(requireActivity()))
 //                    findNavController().navigate(R.id.action_mainPageFragment_to_detailOfferFragment, bundleOf(ID to id))
 
+//    fun updateSearch(s: String) {
+//        if (s.isEmpty()) {
+//            viewModel.api.getAllOrders()
+//        } else {
+//            viewModel
+//        }
+//    }
 
     override fun onResume() {
         super.onResume()
@@ -90,7 +114,11 @@ class MainFragment : BaseFragment(), View.OnClickListener {
         rvGoods.adapter = mainAdapter
         mainAdapter.onItemClick = { position ->
             mainAdapter.list[position].id?.let {
-                findNavController().navigate(MainFragmentDirections.actionMainPageFragmentToDetailOfferFragment(it))
+                findNavController().navigate(
+                    MainFragmentDirections.actionMainPageFragmentToDetailOfferFragment(
+                        it
+                    )
+                )
             }
         }
     }
@@ -100,9 +128,19 @@ class MainFragment : BaseFragment(), View.OnClickListener {
         rvCategories.adapter = adapter
         adapter.addItems(
             mutableListOf(
-                CategoryResponse(name = "Жильё",icon = null, categoryType = HOUSE).apply { id = 3 },
-                CategoryResponse(name = "Транспорт", icon = null, categoryType = TRANSPORT).apply { id = 1 },
-                CategoryResponse(name = "Техника", icon = null, categoryType = TECHNIQUE).apply { id = 2 },
+                CategoryResponse(name = "Жильё", icon = null, categoryType = HOUSE).apply {
+                    id = 3
+                },
+                CategoryResponse(
+                    name = "Транспорт",
+                    icon = null,
+                    categoryType = TRANSPORT
+                ).apply { id = 1 },
+                CategoryResponse(
+                    name = "Техника",
+                    icon = null,
+                    categoryType = TECHNIQUE
+                ).apply { id = 2 },
                 CategoryResponse(name = "Все категории", icon = null, categoryType = ALL_CATEGORIES)
             )
         )

@@ -24,7 +24,7 @@ internal class ErrorInterceptor @Inject constructor() : Interceptor {
     private fun parseErrorBody(response: Response) { //temp kostul, change when backend start sending formal model of error
         val errorBody: String = response.body!!.string()
         Log.e("SERVER RESPONSE ERROR", errorBody)
-        val errorResponse: MainErrorModel = Gson().fromJson(errorBody, MainErrorModel::class.java)
-        throw errorResponse
+//        val errorResponse: MainErrorModel = Gson().fromJson(errorBody, MainErrorModel::class.java)
+//        throw errorResponse
     }
 }

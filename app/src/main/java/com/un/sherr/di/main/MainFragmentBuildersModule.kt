@@ -120,4 +120,5 @@ abstract class MainFragmentBuildersModule {
 
     @ContributesAndroidInjector(modules = [FavoritesVMModule::class])
     abstract fun contributeSubcategoryFragment(): SubcategoryFragment
+
 }

@@ -1,11 +1,14 @@
 package com.un.sherr.ui.authorization
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.un.sherr.base.BaseViewModel
+import com.un.sherr.models.TokenResponse
 import com.un.sherr.models.UserAuthorizationRequest
 import com.un.sherr.models.UserRegistrationRequest
 import com.un.sherr.models.UserRegistrationResponse
 import com.un.sherr.network.Api
+import com.un.sherr.utils.Constants
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
@@ -16,11 +19,16 @@ class RegistrationViewModel @Inject constructor(var api: Api) : BaseViewModel() 
     var progressDialog = MutableLiveData<Boolean>()
     val errorMessage: MutableLiveData<String> = MutableLiveData()
     val userRegistrationResponseLD = MutableLiveData<UserRegistrationResponse>()
+    val userAuthorizationResponseLD = MutableLiveData<TokenResponse>()
     val userAuthorizationRequestLD = MutableLiveData<UserAuthorizationRequest>()
+    private var email: String? = null
+    private var password: String? = null
 
     init {
-        if (userRegistrationRequestLD.value == null) userRegistrationRequestLD.value = UserRegistrationRequest()
-        if (userAuthorizationRequestLD.value == null) userAuthorizationRequestLD.value = UserAuthorizationRequest()
+        if (userRegistrationRequestLD.value == null) userRegistrationRequestLD.value =
+            UserRegistrationRequest()
+        if (userAuthorizationRequestLD.value == null) userAuthorizationRequestLD.value =
+            UserAuthorizationRequest()
     }
 
     fun userRegistration() {
@@ -35,6 +43,7 @@ class RegistrationViewModel @Inject constructor(var api: Api) : BaseViewModel() 
                         password = userRegistrationRequestLD.value?.password
                     )
                     auth()
+
                 }, {
                     onError(it)
                 }
@@ -42,12 +51,19 @@ class RegistrationViewModel @Inject constructor(var api: Api) : BaseViewModel() 
     }
 
     private fun auth() {
-        val disposable = api.getUserAuthorizationToken(userAuthorizationRequestLD.value ?: return)
+        val disposable = api.getUserAuthorizationToken(
+            Constants.CLIENT_ID,
+            Constants.CLIENT_SECRET,
+            Constants.GRANT_TYPE,
+            password!!,
+            Constants.SCOPE,
+            email!!
+        )
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { result ->
-                    result
+                    userAuthorizationResponseLD.value = result
                 }, {
                     onError(it)
                 }
@@ -60,10 +76,12 @@ class RegistrationViewModel @Inject constructor(var api: Api) : BaseViewModel() 
 
     fun setupEmail(email: String) {
         userRegistrationRequestLD.value = userRegistrationRequestLD.value?.copy(email = email)
+        this.email = email
     }
 
     fun setupPassword(password: String) {
         userRegistrationRequestLD.value = userRegistrationRequestLD.value?.copy(password = password)
+        this.password = password
     }
 
     override fun onStart() {

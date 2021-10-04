@@ -114,8 +114,15 @@
 
     <string name="authorization">Вход</string>
     <string name="registration">Регистрация</string>
+    <string name="сancel">Отмена</string>
+    <string name="exit_ru">Выход</string>
+    <string name="exit_hint">Вы действительно хотите выйти своего аккаунта?</string>
 
     <string name="rent_dialog_hint">Для аренды Вам необходимо пройти регистрацию, если у Вас уже есть аккаун нажмите кнопку Вход</string>
+    <string name="send_msg_dialog_main">Для отправки сообщений Вам необходимо пройти регистрацию, если у Вас уже есть аккаун нажмите кнопку Вход</string>
+    <string name="favorites_dialog">Для просмотра вкладки "Избранное" Вам необходимо пройти регистрацию, если у Вас уже есть аккаун нажмите кнопку Вход</string>
+    <string name="profile_dialog">Для просмотра своего профиля Вам необходимо пройти регистрацию, если у Вас уже есть аккаун нажмите кнопку Вход</string>
+    <string name="add_order_dialog">Для добавления товара Вам необходимо пройти регистрацию, если у Вас уже есть аккаун нажмите кнопку Вход</string>
     <string name="send_msg_dialog_hint">Для отправки сообщения пользователю %s Вам необходимо пройти регистрацию, если у Вас уже есть аккаун нажмите кнопку Вход</string>
     <string name="all_in_category">Все в категории %s</string>
     <string name="registration_hint">Для регистрации воспользуйтесь одной из социальных сетей</string>

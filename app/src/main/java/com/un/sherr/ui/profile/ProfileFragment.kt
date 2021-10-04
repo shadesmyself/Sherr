@@ -13,6 +13,7 @@ import com.un.sherr.custom.GridSpacingItemDecoration
 import com.un.sherr.di.ViewModelProviderFactory
 import com.un.sherr.ui.MainActivity
 import com.un.sherr.ui.main.adapters.GoodsAdapter
+import com.un.sherr.ui.profile.vm.ProfileViewModel
 import kotlinx.android.synthetic.main.fragment_profile.*
 import javax.inject.Inject
 
@@ -32,8 +33,7 @@ class ProfileFragment : BaseFragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel =
-            ViewModelProvider(requireActivity(), viewModelProviderFactory).get(ProfileViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity(), viewModelProviderFactory).get(ProfileViewModel::class.java)
 
         vgComments.setOnClickListener(this)
 

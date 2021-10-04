@@ -38,6 +38,7 @@
                     mainToolbar:layout_constraintTop_toTopOf="parent" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circle_portrait_profile"
                     android:layout_width="@dimen/circle_img_big_size"
                     android:layout_height="@dimen/circle_img_big_size"
                     android:src="@drawable/place"

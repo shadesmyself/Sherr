@@ -7,7 +7,7 @@ import okhttp3.Request
 import okhttp3.Response
 import javax.inject.Inject
 
-class HeaderInterceptor @Inject constructor(val sharedPreferences: SharedPreferences) : Interceptor {
+class HeaderInterceptor @Inject constructor(private val sharedPreferences: SharedPreferences) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()

@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -25,12 +27,15 @@ import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.maps.android.clustering.ClusterManager
 import com.un.sherr.R
+import com.un.sherr.base.BaseApplication
 import com.un.sherr.base.BaseMapFragment
 import com.un.sherr.custom.ShadowTransformer
 import com.un.sherr.di.ViewModelProviderFactory
 import com.un.sherr.models.ClusterMarker
+import com.un.sherr.models.TokenResponse
 import com.un.sherr.ui.MainActivity
 import com.un.sherr.ui.dialog.DialogWithTwoButtons
+import com.un.sherr.ui.offer.CreateCommentFragment.Companion.ID
 import com.un.sherr.ui.offer.adapters.CardFragmentPagerAdapter
 import com.un.sherr.utils.MyClusterManagerRenderer
 import com.un.sherr.utils.Utils
@@ -68,11 +73,12 @@ class DetailOfferFragment : BaseMapFragment() {
         viewModel = ViewModelProvider(requireActivity(), viewModelProviderFactory).get(DetailOfferViewModel::class.java)
         sheetBehaviorMap = BottomSheetBehavior.from(bottom_sheet)
         sheetBehaviorDescription = BottomSheetBehavior.from(bottom_sheet_description)
-
         val img: ArrayList<String> = arrayListOf()
         img.add("https://i.pinimg.com/564x/1d/a6/3c/1da63c8207b372798b021b475614b65c.jpg")
         img.add("https://i.pinimg.com/564x/56/55/a7/5655a787b0988e9ba58f7dbaf414b20c.jpg")
         img.add("https://i.pinimg.com/564x/8b/dd/56/8bdd56983d6136208f5884a34b37e1c2.jpg")
+
+       val userToken = BaseApplication.userToken.getString("UserToken", "")
 
         val adapter = CardFragmentPagerAdapter(childFragmentManager, 4f, img)
         val fragmentCardShadowTransformer = ShadowTransformer(viewPager, adapter)
@@ -83,16 +89,27 @@ class DetailOfferFragment : BaseMapFragment() {
         viewPager.offscreenPageLimit = 3
         viewPager.setCurrentItem(1, false)
 
-        back_btn.setOnClickListener { requireActivity().onBackPressed() }
+        back_btn.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
         lease_btn.setOnClickListener {
-//            navController.navigate(
-//                R.id.action_detailOfferFragment_to_leaseOfferFragment,
-//                bundleOf(ID to "id")
-//            )
-            showDialog(getString(R.string.rent_dialog_hint))
+            if (!userToken.isNullOrEmpty()){
+            findNavController().navigate(
+               R.id.action_detailOfferFragment_to_leaseOfferFragment,
+               bundleOf(ID to "id")
+           )
+            } else{
+                showDialog(getString(R.string.rent_dialog_hint))
+            }
         }
         msg_btn.setOnClickListener {
-            showDialog(getString(R.string.send_msg_dialog_hint, "name"))
+            if (!userToken.isNullOrEmpty()){
+                findNavController().navigate(
+                    R.id.chatsFragment
+                )
+            } else{
+                showDialog(getString(R.string.send_msg_dialog_hint, "name"))
+            }
         }
         openCloseBottomSheets()
         viewModel.loadOrder(args.id)

@@ -12,12 +12,7 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(
-    modules = arrayOf(
-        AndroidInjectionModule::class, // must be replaced with AndroidInjectionModule
-        ActivityBuilderModule::class,
-        AppModule::class,
-        ViewModelFuctoryModule::class
-    )
+    modules = [AndroidInjectionModule::class, ActivityBuilderModule::class, AppModule::class, ViewModelFuctoryModule::class]
 )
 interface AppComponent : AndroidInjector<BaseApplication> {
 
