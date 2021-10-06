@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.GoogleMap
-import com.un.sherr.R
 import com.un.sherr.base.BaseMapFragment
+import com.un.sherr.databinding.FragmentSelectPositionMapBinding
 import com.un.sherr.di.ViewModelProviderFactory
-import com.un.sherr.ui.main.MainViewModel
+import com.un.sherr.ui.main.vm.MainViewModel
 import com.un.sherr.utils.Utils
-import kotlinx.android.synthetic.main.fragment_select_position_map.*
 import java.io.IOException
 import java.util.*
 import javax.inject.Inject
@@ -24,11 +23,15 @@ class SelectPositionMapFragment : BaseMapFragment() {
     lateinit var viewModelProviderFactory: ViewModelProviderFactory
 
     private lateinit var viewModel: MainViewModel
+    private lateinit var binding: FragmentSelectPositionMapBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_select_position_map, container, false)
+    ): View {
+        binding = FragmentSelectPositionMapBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,8 +39,8 @@ class SelectPositionMapFragment : BaseMapFragment() {
     }
 
     override fun onMapReady(map: GoogleMap) {
-        if (Utils.checkMapPermission(context!!)) {
-            tvSubmit.setOnClickListener {
+        if (Utils.checkMapPermission(requireContext())) {
+            binding.tvSubmit.setOnClickListener {
                 val a = map.cameraPosition.target
                 val geocoder = Geocoder(context, Locale.getDefault())
                 try {
@@ -45,7 +48,7 @@ class SelectPositionMapFragment : BaseMapFragment() {
                     if (null != listAddresses && listAddresses.size > 0) {
                         viewModel.locationFilter = listAddresses[0].getAddressLine(0)
                     }
-                    activity!!.onBackPressed()
+                    requireActivity().onBackPressed()
                 } catch (e: IOException) {
                     showToast(e.toString())
                 }

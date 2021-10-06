@@ -3,7 +3,6 @@ package com.un.sherr.di.main.profile
 import androidx.lifecycle.ViewModel
 import com.un.sherr.di.VMKey
 import com.un.sherr.ui.profile.vm.ProfileViewModel
-import com.un.sherr.ui.profile.vm.VerifyFragmentViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

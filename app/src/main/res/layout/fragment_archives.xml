@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     xmlns:mainToolbar="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.profile.comments.CommentsFragment">
+    tools:context=".ui.profile.ui.comments.CommentsFragment">
 
     <com.un.sherr.custom.views.MainToolbar
         android:layout_width="match_parent"

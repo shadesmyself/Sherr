@@ -11,42 +11,44 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.un.sherr.R
 import com.un.sherr.base.BaseFragment
+import com.un.sherr.databinding.FragmentSubcategoryBinding
 import com.un.sherr.di.ViewModelProviderFactory
 import com.un.sherr.ui.MainActivity
-import com.un.sherr.ui.main.FilterViewModel
+import com.un.sherr.ui.main.vm.FilterViewModel
 import com.un.sherr.ui.main.adapters.SubcategoriesAdapter
-import kotlinx.android.synthetic.main.fragment_rubric.*
-import kotlinx.android.synthetic.main.fragment_rubric.mainToolBar
-import kotlinx.android.synthetic.main.fragment_rubric.progress
-import kotlinx.android.synthetic.main.fragment_rubric.rvRubric
-import kotlinx.android.synthetic.main.fragment_subcategory.*
 import javax.inject.Inject
 
 class SubcategoryFragment : BaseFragment() {
+
     @Inject
     lateinit var viewModelProviderFactory: ViewModelProviderFactory
     lateinit var viewModel: FilterViewModel
 
     private lateinit var adapter: SubcategoriesAdapter
+    private lateinit var binding: FragmentSubcategoryBinding
 
     private val args: SubcategoryFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_subcategory, container, false)
+    ): View{
+        binding = FragmentSubcategoryBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(requireActivity(), viewModelProviderFactory).get(FilterViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity(), viewModelProviderFactory).get(
+            FilterViewModel::class.java)
         args.category.id?.let {
             viewModel.loadSubcategories(it)
         }
         setupAdapter()
         initObservables()
-        mainToolBar.setTitle(args.category.name ?: "Subcategory")
-        header.text = args.category.name ?: "Subcategory"
-        subheader.text = getString(R.string.all_in_category, args.category.name ?: "Subcategory")
+        binding.mainToolBar.setTitle(args.category.name ?: "Subcategory")
+        binding.header.text = args.category.name ?: "Subcategory"
+        binding.subheader.text = getString(R.string.all_in_category, args.category.name ?: "Subcategory")
     }
 
     private fun initObservables() {
@@ -54,7 +56,7 @@ class SubcategoryFragment : BaseFragment() {
             Toast.makeText(activity, "error, $error", Toast.LENGTH_LONG).show()
         }
         viewModel.progressDialog.observe(viewLifecycleOwner) {
-            progress.isVisible = it
+            binding.progress.isVisible = it
         }
         viewModel.subcategoriesLD.observe(viewLifecycleOwner) {
             adapter.addItems(it.toMutableList())
@@ -68,6 +70,6 @@ class SubcategoryFragment : BaseFragment() {
 
     private fun setupAdapter() {
         adapter = SubcategoriesAdapter()
-        rvRubric.adapter = adapter
+        binding.rvRubric.adapter = adapter
     }
 }

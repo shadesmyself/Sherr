@@ -7,7 +7,6 @@ import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import androidx.viewpager.widget.ViewPager.PageTransformer
 import com.un.sherr.ui.offer.adapters.CardAdapter
 
-
 class ShadowTransformer(private val viewPager: ViewPager, adapter: CardAdapter) : OnPageChangeListener, PageTransformer {
     private val cardAdapter: CardAdapter
     private var lastOffset = 0f

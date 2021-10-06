@@ -5,7 +5,7 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.un.sherr.ui.offer.PictureFragment
+import com.un.sherr.ui.offer.ui.PictureFragment
 
 
 class CardFragmentPagerAdapter( fm: FragmentManager?, baseElevation: Float, var img: List<String>) :

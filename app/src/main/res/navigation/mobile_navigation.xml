@@ -10,7 +10,7 @@
         app:startDestination="@id/mainPageFragment" />
     <fragment
         android:id="@+id/chatsFragment"
-        android:name="com.un.sherr.ui.chat.ChatsFragment"
+        android:name="com.un.sherr.ui.chat.ui.ChatsFragment"
         android:label="fragment_chats"
         tools:layout="@layout/fragment_chat">
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainPageFragment"
-        android:name="com.un.sherr.ui.main.MainFragment"
+        android:name="com.un.sherr.ui.main.ui.MainFragment"
         android:label="fragment_main_page"
         tools:layout="@layout/fragment_main_page">
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.un.sherr.ui.profile.ProfileFragment"
+        android:name="com.un.sherr.ui.profile.ui.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile">
         <action
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/myProfileFragment"
-        android:name="com.un.sherr.ui.profile.MyProfileFragment"
+        android:name="com.un.sherr.ui.profile.ui.MyProfileFragment"
         android:label="fragment_my_profile"
         tools:layout="@layout/fragment_my_profile">
         <action
@@ -64,17 +64,17 @@
     </fragment>
     <fragment
         android:id="@+id/verifyFragment"
-        android:name="com.un.sherr.ui.profile.VerifyFragment"
+        android:name="com.un.sherr.ui.profile.ui.VerifyFragment"
         android:label="fragment_verify"
         tools:layout="@layout/fragment_verify" />
     <fragment
         android:id="@+id/commentsFragment"
-        android:name="com.un.sherr.ui.profile.comments.CommentsFragment"
+        android:name="com.un.sherr.ui.profile.ui.comments.CommentsFragment"
         android:label="fragment_comments"
         tools:layout="@layout/fragment_comments" />
     <fragment
         android:id="@+id/mainFilterFragment"
-        android:name="com.un.sherr.ui.main.MainFilterFragment"
+        android:name="com.un.sherr.ui.main.ui.MainFilterFragment"
         android:label="fragment_main_filter"
         tools:layout="@layout/fragment_main_filter">
         <action
@@ -110,12 +110,12 @@
 
     <fragment
         android:id="@+id/pictureFragment"
-        android:name="com.un.sherr.ui.offer.PictureFragment"
+        android:name="com.un.sherr.ui.offer.ui.PictureFragment"
         android:label="PictureFragment"
         tools:layout="@layout/offer_image_card" />
     <fragment
         android:id="@+id/fullPictureFragment"
-        android:name="com.un.sherr.ui.offer.FullPictureFragment"
+        android:name="com.un.sherr.ui.offer.ui.FullPictureFragment"
         android:label="FullPictureFragment"
         app:enterAnim="@anim/fade_in"
         app:exitAnim="@anim/fade_out"
@@ -127,7 +127,7 @@
 
     <fragment
         android:id="@+id/detailOfferFragment"
-        android:name="com.un.sherr.ui.offer.DetailOfferFragment"
+        android:name="com.un.sherr.ui.offer.ui.DetailOfferFragment"
         android:label="fragment_detail_offer_page"
         app:enterAnim="@anim/fade_in"
         app:exitAnim="@anim/fade_out"
@@ -144,7 +144,7 @@
     </fragment>
     <fragment
         android:id="@+id/chatDirectFragment"
-        android:name="com.un.sherr.ui.chat.ChatDirectFragment"
+        android:name="com.un.sherr.ui.chat.ui.ChatDirectFragment"
         android:label="ChatDirectFragment"
         tools:layout="@layout/fragment_chat_direct" />
 
@@ -169,7 +169,7 @@
         tools:layout="@layout/fragment_distance" />
     <fragment
         android:id="@+id/leaseOfferFragment"
-        android:name="com.un.sherr.ui.offer.LeaseOfferFragment"
+        android:name="com.un.sherr.ui.offer.ui.LeaseOfferFragment"
         android:label="LeaseOfferFragment"
         tools:layout="@layout/fragment_lease">
         <argument
@@ -184,13 +184,13 @@
     </fragment>
     <fragment
         android:id="@+id/createCommentFragment"
-        android:name="com.un.sherr.ui.offer.CreateCommentFragment"
+        android:name="com.un.sherr.ui.offer.ui.CreateCommentFragment"
         android:label="CreateCommentFragment"
         tools:layout="@layout/fragment_create_comment" />
 
     <fragment
         android:id="@+id/addGoodFragment"
-        android:name="com.un.sherr.ui.addgood.AddGoodFragment"
+        android:name="com.un.sherr.ui.addgood.ui.AddGoodFragment"
         android:label="fragment_add_good"
         tools:layout="@layout/fragment_add_good">
         <action
@@ -205,12 +205,12 @@
     </fragment>
     <fragment
         android:id="@+id/cameraFragment"
-        android:name="com.un.sherr.ui.addgood.CameraFragment"
+        android:name="com.un.sherr.ui.addgood.ui.CameraFragment"
         android:label="fragment_camera"
         tools:layout="@layout/fragment_camera" />
     <fragment
         android:id="@+id/addGood2Fragment"
-        android:name="com.un.sherr.ui.addgood.AddGood2Fragment"
+        android:name="com.un.sherr.ui.addgood.ui.AddGood2Fragment"
         android:label="fragment_add_good2"
         tools:layout="@layout/fragment_add_good2">
         <action
@@ -219,11 +219,11 @@
     </fragment>
     <fragment
         android:id="@+id/policiesFragment"
-        android:name="com.un.sherr.ui.addgood.PoliciesFragment"
+        android:name="com.un.sherr.ui.addgood.ui.PoliciesFragment"
         android:label="PoliciesFragment" />
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.un.sherr.ui.favorites.FavoritesFragment"
+        android:name="com.un.sherr.ui.favorites.ui.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
     <fragment
@@ -242,29 +242,29 @@
     </fragment>
     <fragment
         android:id="@+id/archivesFragment"
-        android:name="com.un.sherr.ui.profile.ArchivesFragment"
+        android:name="com.un.sherr.ui.profile.ui.ArchivesFragment"
         android:label="ArchivesFragment"
         tools:layout="@layout/fragment_archives" />
     <fragment
         android:id="@+id/activesFragment"
-        android:name="com.un.sherr.ui.profile.ActivesFragment"
+        android:name="com.un.sherr.ui.profile.ui.ActivesFragment"
         android:label="ActivesFragment"
         tools:layout="@layout/fragment_actives" />
     <fragment
         android:id="@+id/dueRentFragment"
-        android:name="com.un.sherr.ui.profile.DueRentFragment"
+        android:name="com.un.sherr.ui.profile.ui.DueRentFragment"
         android:label="DueRentFragment"
         tools:layout="@layout/fragment_due_rent" />
 
     <fragment
         android:id="@+id/authorizationFragment"
-        android:name="com.un.sherr.ui.authorization.AuthorizationFragment"
+        android:name="com.un.sherr.ui.authorization.ui.AuthorizationFragment"
         android:label="@string/authorization"
         tools:layout="@layout/fragment_authorization" />
 
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.un.sherr.ui.authorization.RegistrationFragment"
+        android:name="com.un.sherr.ui.authorization.ui.RegistrationFragment"
         android:label="@string/registration"
         tools:layout="@layout/fragment_registration" />
 </navigation>

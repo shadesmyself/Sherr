@@ -8,13 +8,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.un.sherr.R
 import com.un.sherr.base.BaseFragment
+import com.un.sherr.databinding.FragmentSelectLocationBinding
 import com.un.sherr.di.ViewModelProviderFactory
 import com.un.sherr.models.Country
-import com.un.sherr.ui.main.MainViewModel
+import com.un.sherr.ui.main.vm.MainViewModel
 import com.un.sherr.ui.main.adapters.CountriesAdapter
 import com.un.sherr.utils.MapManagement
 import com.un.sherr.utils.Utils
-import kotlinx.android.synthetic.main.fragment_select_location.*
 import javax.inject.Inject
 
 class SelectLocationFragment : BaseFragment(), View.OnClickListener {
@@ -25,22 +25,26 @@ class SelectLocationFragment : BaseFragment(), View.OnClickListener {
     @Inject
     lateinit var viewModelProviderFactory: ViewModelProviderFactory
     private lateinit var viewModel: MainViewModel
+    private lateinit var binding: FragmentSelectLocationBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_select_location, container, false)
+    ): View{
+        binding = FragmentSelectLocationBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
-        vgMap.setOnClickListener(this)
+        binding.vgMap.setOnClickListener(this)
         if (!viewModel.locationFilter.isNullOrBlank()) {
-            tvLocation.text = viewModel.locationFilter
+            binding.tvLocation.text = viewModel.locationFilter
         }
 
         val adapter = CountriesAdapter()
-        rvCountries.adapter = adapter
+        binding.rvCountries.adapter = adapter
         adapter.addItems(mutableListOf(null, Country(""), Country(""), Country(""), null, Country(""), Country(""), Country(""), Country(""), Country("")))
     }
 

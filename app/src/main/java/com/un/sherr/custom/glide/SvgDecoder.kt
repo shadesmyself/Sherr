@@ -9,7 +9,6 @@ import com.caverock.androidsvg.SVGParseException
 import java.io.IOException
 import java.io.InputStream
 
-
 class SvgDecoder : ResourceDecoder<InputStream?, SVG?> {
 
     override fun handles(source: InputStream, options: Options): Boolean {

@@ -3,19 +3,20 @@ package com.un.sherr.custom.views
 import android.app.Activity
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import com.google.android.material.appbar.AppBarLayout
 import com.un.sherr.R
-import kotlinx.android.synthetic.main.main_toolbar.view.*
+import com.un.sherr.databinding.MainToolbarBinding
 
 class MainToolbar(context: Context, attrs: AttributeSet) : AppBarLayout(context, attrs) {
 
     private val text: String
     private val drawable: Int
 
-    init {
-        View.inflate(context, R.layout.main_toolbar, this)
+    private var binding: MainToolbarBinding =
+        MainToolbarBinding.inflate(LayoutInflater.from(context), this, true)
 
+    init {
         context.theme.obtainStyledAttributes(
             attrs,
             R.styleable.MainToolbar,
@@ -34,18 +35,17 @@ class MainToolbar(context: Context, attrs: AttributeSet) : AppBarLayout(context,
         }
     }
 
-
     fun onIconClick(listener: OnClickListener){
-        mainToolbarImage.setOnClickListener(listener)
+        binding.mainToolbarImage.setOnClickListener(listener)
     }
 
     private fun initView() {
-        mainToolbarImage.setOnClickListener{(context as Activity).onBackPressed()}
-        mainToolbarTitle.text = text
-        mainToolbarImage.setImageResource(drawable)
+        binding.mainToolbarImage.setOnClickListener{(context as Activity).onBackPressed()}
+        binding.mainToolbarTitle.text = text
+        binding.mainToolbarImage.setImageResource(drawable)
     }
 
     fun setTitle(title: String) {
-        mainToolbarTitle.text = title
+        binding.mainToolbarTitle.text = title
     }
 }

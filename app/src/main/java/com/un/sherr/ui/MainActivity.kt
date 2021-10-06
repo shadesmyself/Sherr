@@ -11,7 +11,6 @@ import com.un.sherr.R
 import com.un.sherr.base.BaseApplication
 import com.un.sherr.databinding.ActivityMainBinding
 import com.un.sherr.ui.dialog.DialogWithTwoButtons
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : BaseActivity() {
@@ -30,11 +29,9 @@ class MainActivity : BaseActivity() {
 //         val inflater = navHostFragment.navController.navInflater
 //         val graph = inflater.inflate(R.navigation.mobile_navigation)
 //         navHostFragment.navController.graph = graph*/
-        binding.navView.setOnNavigationItemReselectedListener {
-
-        }
-        binding.navView.itemIconTintList = null
-        overrideNavigationMenu()
+//        binding.navView.setOnNavigationItemReselectedListener {
+//
+//        }
 //        val source = resources.getDrawable(R.drawable.tab_home)
 //        val colors = intArrayOf(
 //            Color.RED, Color.BLACK )
@@ -45,14 +42,12 @@ class MainActivity : BaseActivity() {
 //            this@MainActivity,source,
 //            menu.findItem(R.id.mainPageFragment).icon, shadow, 8f
 //        )
-//
-//
 //        menu.findItem(R.id.mainPageFragment).setIcon(ShapeDrawable(s))
-
 //        val shadow: Drawable = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, colors)
 //        val s: Shape = S(this, nav_view.itemBackground!!, nav_view.itemBackground!!, shadow, 8f)
 //        nav_view.itemBackground = ShapeDrawable(s)
-
+        binding.navView.itemIconTintList = null
+        overrideNavigationMenu()
         setAnimationListeners()
     }
 
@@ -69,7 +64,7 @@ class MainActivity : BaseActivity() {
             override fun onAnimationRepeat(animation: Animation) {}
         })
 
-        slideUp.setAnimationListener(object : Animation.AnimationListener {
+            slideUp.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation) {
             }
 
@@ -125,11 +120,11 @@ class MainActivity : BaseActivity() {
     fun showBottomMenu(show: Boolean) {
         if (show) {
             if (!isBottomMenuVisible) {
-                nav_view.startAnimation(slideUp)
+                binding.navView.startAnimation(slideUp)
             }
         } else {
             if (isBottomMenuVisible)
-                nav_view.startAnimation(slideDown)
+                binding.navView.startAnimation(slideDown)
         }
         isBottomMenuVisible = show
     }

@@ -2,8 +2,8 @@ package com.un.sherr.di.main.authorization
 
 import androidx.lifecycle.ViewModel
 import com.un.sherr.di.VMKey
-import com.un.sherr.ui.authorization.AuthorizationViewModel
-import com.un.sherr.ui.authorization.RegistrationViewModel
+import com.un.sherr.ui.authorization.vm.AuthorizationViewModel
+import com.un.sherr.ui.authorization.vm.RegistrationViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

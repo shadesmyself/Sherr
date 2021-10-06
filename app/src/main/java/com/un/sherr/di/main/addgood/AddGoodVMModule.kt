@@ -2,7 +2,7 @@ package com.un.sherr.di.main.addgood
 
 import androidx.lifecycle.ViewModel
 import com.un.sherr.di.VMKey
-import com.un.sherr.ui.addgood.AddGoodViewModel
+import com.un.sherr.ui.addgood.vm.AddGoodViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

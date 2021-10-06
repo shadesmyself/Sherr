@@ -7,19 +7,24 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.un.sherr.R
 import com.un.sherr.base.BaseFragment
+import com.un.sherr.databinding.FragmentPayBinding
 import com.un.sherr.ui.MainActivity
-import kotlinx.android.synthetic.main.fragment_pay.*
 
 class PayFragment : BaseFragment(), View.OnClickListener {
+
+    private lateinit var binding: FragmentPayBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_pay, container, false)
+    ): View{
+        binding = FragmentPayBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tvPay.setOnClickListener(this)
+        binding.tvPay.setOnClickListener(this)
     }
 
 

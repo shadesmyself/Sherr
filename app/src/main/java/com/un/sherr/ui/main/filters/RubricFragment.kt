@@ -1,6 +1,5 @@
 package com.un.sherr.ui.main.filters
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,13 +8,12 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.un.sherr.R
 import com.un.sherr.base.BaseFragment
+import com.un.sherr.databinding.FragmentRubricBinding
 import com.un.sherr.di.ViewModelProviderFactory
 import com.un.sherr.ui.MainActivity
-import com.un.sherr.ui.main.FilterViewModel
+import com.un.sherr.ui.main.vm.FilterViewModel
 import com.un.sherr.ui.main.adapters.RubricAdapter
-import kotlinx.android.synthetic.main.fragment_rubric.*
 import javax.inject.Inject
 
 class RubricFragment : BaseFragment() {
@@ -25,12 +23,15 @@ class RubricFragment : BaseFragment() {
     @Inject
     lateinit var viewModelProviderFactory: ViewModelProviderFactory
     lateinit var viewModel: FilterViewModel
+    private lateinit var binding: FragmentRubricBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_rubric, container, false)
-
+    ): View{
+        binding = FragmentRubricBinding.inflate(layoutInflater)
+        return binding.root
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel =
@@ -45,7 +46,7 @@ class RubricFragment : BaseFragment() {
             Toast.makeText(activity, "error, ${error}", Toast.LENGTH_LONG).show()
         })
         viewModel.progressDialog.observe(viewLifecycleOwner, Observer {
-            progress.visibility = if (it) View.VISIBLE else View.GONE
+            binding.progress.visibility = if (it) View.VISIBLE else View.GONE
         })
         viewModel.categoriesLD.observe(viewLifecycleOwner) {
             adapter.addItems(it.toMutableList())
@@ -59,7 +60,7 @@ class RubricFragment : BaseFragment() {
 
     private fun setupAdapter() {
         adapter = RubricAdapter()
-        rvRubric.adapter = adapter
+        binding.rvRubric.adapter = adapter
         adapter.onItemClick = { position ->
             adapter.list[position].let {
                 findNavController().navigate(RubricFragmentDirections.toSubcategoryFragment(it))

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".ui.main.MainFilterFragment">
+    tools:context=".ui.main.ui.MainFilterFragment">
 
     <com.un.sherr.custom.views.MainToolbar
         android:id="@+id/mainToolBar"
