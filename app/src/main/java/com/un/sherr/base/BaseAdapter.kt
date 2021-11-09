@@ -13,7 +13,7 @@ abstract class BaseAdapter<T : BaseModelResponse?, U : RecyclerView.ViewHolder> 
         if (l.isNullOrEmpty()) {
             list = arrayListOf()
             notifyDataSetChanged()
-        } else if (list.isNullOrEmpty() || list.filter { it != null }.map { it!!.id }.contains(l[0]!!.id)) {
+        } else if (list.isNullOrEmpty() || list.filterNotNull().map { it.id }.contains(l[0]!!.id)) {
             list = l
             notifyDataSetChanged()
         } else {

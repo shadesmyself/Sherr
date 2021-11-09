@@ -1,6 +1,5 @@
 package com.un.sherr.ui.main.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,13 +30,11 @@ class GoodsAdapter : BaseAdapter<GoodResponse, GoodsAdapter.GoodsVH>() {
             view.title.text = good.title
             view.price.text = view.context.resources.getString(R.string.price_value, good.costDay.toString())
             if (good.orderPhotos!!.data!!.isNotEmpty()){
-            Log.e("TAG", "bind: ${good.orderPhotos.data!![0].image}")
                 Picasso.with(itemView.context)
-                    .load(BASE_URL_IMG + good.orderPhotos.data[0].image)
+                    .load(BASE_URL_IMG + good.orderPhotos.data!![0].image)
                     .placeholder(R.mipmap.ic_launcher_round)
                     .error(R.drawable.ic_launcher_foreground)
                     .into(view.img_order)
-                Log.e("TAG", "bind: ${BASE_URL_IMG + good.orderPhotos.data[0].image}")
             } else{
                 Picasso.with(itemView.context)
                     .load(R.drawable.place_holder)

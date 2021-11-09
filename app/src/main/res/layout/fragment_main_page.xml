@@ -42,10 +42,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_margin"
-                android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="@dimen/text_margin"
                 android:hint="@string/search"
-                android:textSize="@dimen/text_size_16" />
+                android:textSize="@dimen/text_size_16"
+                app:drawableStartCompat="@drawable/ic_search" />
 
             <include layout="@layout/line_small_margin" />
 

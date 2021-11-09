@@ -47,7 +47,6 @@ import kotlinx.android.synthetic.main.bottom_sheet_map_offer.*
 import kotlinx.android.synthetic.main.content_detail_offer.*
 import javax.inject.Inject
 
-
 class DetailOfferFragment : BaseMapFragment() {
 
     @Inject

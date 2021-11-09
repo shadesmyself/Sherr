@@ -36,8 +36,8 @@ class ShadowTransformer(private val viewPager: ViewPager, adapter: CardAdapter) 
         val baseElevation: Float = cardAdapter.baseElevation
         val realOffset: Float
         val goingLeft = lastOffset > positionOffset
-        // If we're going backwards, onPageScrolled receives the last position
-// instead of the current one
+        // -
+        // -
         if (goingLeft) {
             realCurrentPosition = position + 1
             nextPosition = position

@@ -93,7 +93,7 @@ class VerifyFragment : BaseFragment() {
                 viewModel.verificationData(firstPhotoUpload,secondPhotoUpload )
                 requireActivity().onBackPressed()
             } else {
-                Toast.makeText(requireContext(), "Добавьте фото для веррификации", Toast.LENGTH_SHORT).show()
+                showToast("Добавьте фото для веррификации")
             }
         }
     }

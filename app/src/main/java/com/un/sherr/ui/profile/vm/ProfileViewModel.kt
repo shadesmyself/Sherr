@@ -46,7 +46,6 @@ class ProfileViewModel @Inject constructor(var api: Api) : BaseViewModelCoroutin
 //            "photo[content]", "photo",
 //            byteArray.toRequestBody("image/*".toMediaTypeOrNull(), 0, byteArray.size)
 //        )
-        Log.e("Upload Avatar", "uploadUserAvatar: $image")
         val reqFilePassport = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), image)
         this.avatarImage = MultipartBody.Part.createFormData("photo", image.name, reqFilePassport)
         sendAvatar()

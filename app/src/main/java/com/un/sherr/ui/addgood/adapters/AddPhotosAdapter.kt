@@ -22,6 +22,7 @@ class AddPhotosAdapter constructor(private val requestManager: RequestManager, p
             holder.bind(list[position])
         }else{
             holder.view.setOnClickListener { listener.onPhotoClick() }
+
         }
     }
 

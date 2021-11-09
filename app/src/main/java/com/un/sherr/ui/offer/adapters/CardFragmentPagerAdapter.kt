@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.un.sherr.ui.offer.ui.PictureFragment
 
-
 class CardFragmentPagerAdapter( fm: FragmentManager?, baseElevation: Float, var img: List<String>) :
     FragmentStatePagerAdapter(fm!!, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT), CardAdapter {
     private val fragments: MutableList<PictureFragment>

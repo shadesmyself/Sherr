@@ -114,7 +114,7 @@ class CameraFragment : BaseFragment(), View.OnClickListener {
 
     fun startCameraPreview() {
         val surfaceTexture = binding.texture.surfaceTexture
-//        surfaceTexture.setDefaultBufferSize(cameraDimensions.width, cameraDimensions.height)
+        surfaceTexture?.setDefaultBufferSize(cameraDimensions.width, cameraDimensions.height)
         surfaceTexture?.setDefaultBufferSize(cameraDimensions.width, 1080)
         val surface = Surface(surfaceTexture)
 

@@ -104,6 +104,8 @@ class MyProfileFragment : BaseFragment() {
           dialog.dismiss()
             }
         }
+
+
         dialog.show(requireActivity().supportFragmentManager, DialogWithTwoButtons::class.java.simpleName)
     }
 

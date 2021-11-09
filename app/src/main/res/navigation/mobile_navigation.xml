@@ -2,12 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobяile_navigation.xml"
-    app:startDestination="@id/mainPageFragment">
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/preloaderFragment">
 
     <navigation
         android:id="@+id/navigation"
-        app:startDestination="@id/mainPageFragment" />
+        app:startDestination="@id/preloaderFragment" />
     <fragment
         android:id="@+id/chatsFragment"
         android:name="com.un.sherr.ui.chat.ui.ChatsFragment"
@@ -16,6 +16,15 @@
         <action
             android:id="@+id/action_chatsFragment_to_chatDirectFragment"
             app:destination="@id/chatDirectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/preloaderFragment"
+        android:name="com.un.sherr.ui.preload.ui.PreloaderFragment"
+        android:label="fragment_preloader"
+        tools:layout="@layout/fragment_preloader">
+        <action
+            android:id="@+id/action_preloaderFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/mainPageFragment"

@@ -3,7 +3,6 @@ package com.un.sherr.network
 import com.un.sherr.models.*
 import io.reactivex.Observable
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -23,9 +22,7 @@ interface Api {
      fun getCategories(): Observable<DataWrapperResponse<List<CategoryResponse>>>
 
     @GET("api/sub-category")
-    fun getSubCategories(
-        @Query("search") categoryId: String
-    ): Observable<DataWrapperResponse<List<SubcategoryResponse>>>
+    fun getSubCategories(@Query("search") categoryId: String): Observable<DataWrapperResponse<List<SubcategoryResponse>>>
 
     @GET("api/user/details")
     fun getCurrentUserInformation(): Observable<DataWrapperResponse<UserInformationResponse>>
@@ -38,7 +35,7 @@ interface Api {
     @Headers("Content-Type: multipart/form-data")
     @POST("api/user/avatar")
     @Multipart
-    suspend fun uploadUserAvatar(@Part body: MultipartBody.Part): Observable<DataWrapperResponse<Avatar>>
+    suspend fun uploadUserAvatar(@Part body: MultipartBody.Part): Response<DataWrapperResponse<Avatar>>
 
     @Headers( "Content-Type: application/json")
     @POST("api/user/register")
@@ -49,4 +46,16 @@ interface Api {
     @POST("api/user/verify")
     suspend fun getVerify(@Part passport: MultipartBody.Part,@Part registration: MultipartBody.Part): Response<Unit>
 
+    @Headers( "Content-Type: application/json")
+    @GET("/api/chats" )
+    suspend fun getAllChats(@Header("Authorization") token: String) : Response<Chats>
+
+    @Headers( "Content-Type: application/json")
+    @GET("/api/chats/{id}" )
+    suspend fun getChatDirect(@Path("id") id: Int, @Header("Authorization") token: String): Response<DataWrapperResponse<List<ChatDirectMain>>>
+
+    @Headers( "Content-Type: application/json")
+    @Multipart
+    @POST("/api/chat")
+    suspend fun sendMessage(@Header("Authorization") token: String, @Part("recipient_id") recipient_id: Int, @Part("message") message: String): Response<Unit>
 }

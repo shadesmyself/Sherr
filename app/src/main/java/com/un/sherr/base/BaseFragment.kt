@@ -10,7 +10,6 @@ open class BaseFragment: DaggerFragment() {
     @Inject
     lateinit var requestManager: RequestManager
 
-
     fun showToast(str: String){
         Toast.makeText(context, str, Toast.LENGTH_LONG).show()
     }

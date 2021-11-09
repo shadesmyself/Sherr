@@ -12,9 +12,10 @@ import com.un.sherr.base.BaseApplication
 import com.un.sherr.databinding.ActivityMainBinding
 import com.un.sherr.ui.dialog.DialogWithTwoButtons
 
-
 class MainActivity : BaseActivity() {
-
+    companion object{
+        const val REQUEST_CODE = 111
+    }
     private var isBottomMenuVisible = true
     private lateinit var slideUp: Animation
     private lateinit var slideDown: Animation
@@ -129,6 +130,13 @@ class MainActivity : BaseActivity() {
         isBottomMenuVisible = show
     }
 
+    override fun onResume() {
+        super.onResume()
+//        ActivityCompat.requestPermissions(this,
+//            arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),
+//            REQUEST_CODE
+//        )
+    }
     private fun showDialog(title: String) {
         val dialog = DialogWithTwoButtons.newInstance(
             title = title,

@@ -1,6 +1,8 @@
 package com.un.sherr.ui.addgood.ui
 
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,6 +46,7 @@ class AddGoodFragment : BaseFragment(), AddPhotosAdapter.OnPhotoClickListener, V
     override fun onPhotoClick() {
         if (Utils.checkCameraPermission(requireContext()))
             findNavController().navigate(R.id.action_addGoodFragment_to_cameraFragment)
+        val v = binding.rvPhotos.layoutManager!!.findViewByPosition(1)
     }
 
     override fun onClick(v: View?) {
@@ -53,6 +56,7 @@ class AddGoodFragment : BaseFragment(), AddPhotosAdapter.OnPhotoClickListener, V
             }
             R.id.btnNext -> {
                 findNavController().navigate(R.id.action_addGoodFragment_to_addGood2Fragment)
+
             }
         }
     }

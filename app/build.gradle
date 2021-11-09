@@ -99,7 +99,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     //indicator
-    implementation 'com.romandanylyk:pageindicatorview:1.0.3'
+    implementation 'com.github.romandanylyk:PageIndicatorView:b1bad589b5'
     implementation 'com.github.fuzz-productions:CutoutViewIndicator:v0.9.0'
 
     //localization
@@ -126,9 +126,11 @@ dependencies {
     implementation 'com.github.florent37:singledateandtimepicker:2.2.0'
 
     //image picker
-    implementation 'com.opensooq.supernova:gligar:1.0.0'
+    implementation 'com.github.omkar-tenkale:Gligar:78d8110102e0be4e1e2f939b5307ae5f645e6761'
 
     //map marker
     implementation 'com.google.maps.android:android-maps-utils:1.0.0'
 
+    //LoadingAnim
+    implementation 'com.airbnb.android:lottie:3.7.0'
 }
